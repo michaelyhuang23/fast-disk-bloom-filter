@@ -32,7 +32,6 @@ class Bloom{
         uint32_t block_size = 4096;
         uint64_t num_blocks;
         int64_t memory_limit = 2*1e9;
-        BufferPool buffer_pool;
         FileManager* file;
         std::vector<uint32_t> hash_seeds;
 

@@ -178,30 +178,6 @@ bloom.cpp.s:
 	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/fastbloom.dir/build.make src/CMakeFiles/fastbloom.dir/bloom.cpp.s
 .PHONY : bloom.cpp.s
 
-buffer_pool.o: buffer_pool.cpp.o
-.PHONY : buffer_pool.o
-
-# target to build an object file
-buffer_pool.cpp.o:
-	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/fastbloom.dir/build.make src/CMakeFiles/fastbloom.dir/buffer_pool.cpp.o
-.PHONY : buffer_pool.cpp.o
-
-buffer_pool.i: buffer_pool.cpp.i
-.PHONY : buffer_pool.i
-
-# target to preprocess a source file
-buffer_pool.cpp.i:
-	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/fastbloom.dir/build.make src/CMakeFiles/fastbloom.dir/buffer_pool.cpp.i
-.PHONY : buffer_pool.cpp.i
-
-buffer_pool.s: buffer_pool.cpp.s
-.PHONY : buffer_pool.s
-
-# target to generate assembly for a file
-buffer_pool.cpp.s:
-	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/fastbloom.dir/build.make src/CMakeFiles/fastbloom.dir/buffer_pool.cpp.s
-.PHONY : buffer_pool.cpp.s
-
 file_manager.o: file_manager.cpp.o
 .PHONY : file_manager.o
 
@@ -241,9 +217,6 @@ help:
 	@echo "... bloom.o"
 	@echo "... bloom.i"
 	@echo "... bloom.s"
-	@echo "... buffer_pool.o"
-	@echo "... buffer_pool.i"
-	@echo "... buffer_pool.s"
 	@echo "... file_manager.o"
 	@echo "... file_manager.i"
 	@echo "... file_manager.s"

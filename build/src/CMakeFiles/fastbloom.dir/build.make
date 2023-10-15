@@ -83,24 +83,10 @@ src/CMakeFiles/fastbloom.dir/bloom.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/fastbloom.dir/bloom.cpp.s"
 	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build/src && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yh_huang/ProjectData/fast-disk-bloom/src/bloom.cpp -o CMakeFiles/fastbloom.dir/bloom.cpp.s
 
-src/CMakeFiles/fastbloom.dir/buffer_pool.cpp.o: src/CMakeFiles/fastbloom.dir/flags.make
-src/CMakeFiles/fastbloom.dir/buffer_pool.cpp.o: /Users/yh_huang/ProjectData/fast-disk-bloom/src/buffer_pool.cpp
-src/CMakeFiles/fastbloom.dir/buffer_pool.cpp.o: src/CMakeFiles/fastbloom.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/fastbloom.dir/buffer_pool.cpp.o"
-	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build/src && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/fastbloom.dir/buffer_pool.cpp.o -MF CMakeFiles/fastbloom.dir/buffer_pool.cpp.o.d -o CMakeFiles/fastbloom.dir/buffer_pool.cpp.o -c /Users/yh_huang/ProjectData/fast-disk-bloom/src/buffer_pool.cpp
-
-src/CMakeFiles/fastbloom.dir/buffer_pool.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/fastbloom.dir/buffer_pool.cpp.i"
-	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build/src && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yh_huang/ProjectData/fast-disk-bloom/src/buffer_pool.cpp > CMakeFiles/fastbloom.dir/buffer_pool.cpp.i
-
-src/CMakeFiles/fastbloom.dir/buffer_pool.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/fastbloom.dir/buffer_pool.cpp.s"
-	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build/src && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yh_huang/ProjectData/fast-disk-bloom/src/buffer_pool.cpp -o CMakeFiles/fastbloom.dir/buffer_pool.cpp.s
-
 src/CMakeFiles/fastbloom.dir/file_manager.cpp.o: src/CMakeFiles/fastbloom.dir/flags.make
 src/CMakeFiles/fastbloom.dir/file_manager.cpp.o: /Users/yh_huang/ProjectData/fast-disk-bloom/src/file_manager.cpp
 src/CMakeFiles/fastbloom.dir/file_manager.cpp.o: src/CMakeFiles/fastbloom.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/fastbloom.dir/file_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/fastbloom.dir/file_manager.cpp.o"
 	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build/src && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/fastbloom.dir/file_manager.cpp.o -MF CMakeFiles/fastbloom.dir/file_manager.cpp.o.d -o CMakeFiles/fastbloom.dir/file_manager.cpp.o -c /Users/yh_huang/ProjectData/fast-disk-bloom/src/file_manager.cpp
 
 src/CMakeFiles/fastbloom.dir/file_manager.cpp.i: cmake_force
@@ -114,7 +100,7 @@ src/CMakeFiles/fastbloom.dir/file_manager.cpp.s: cmake_force
 src/CMakeFiles/fastbloom.dir/MurmurHash3.cpp.o: src/CMakeFiles/fastbloom.dir/flags.make
 src/CMakeFiles/fastbloom.dir/MurmurHash3.cpp.o: /Users/yh_huang/ProjectData/fast-disk-bloom/src/MurmurHash3.cpp
 src/CMakeFiles/fastbloom.dir/MurmurHash3.cpp.o: src/CMakeFiles/fastbloom.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/fastbloom.dir/MurmurHash3.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/fastbloom.dir/MurmurHash3.cpp.o"
 	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build/src && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/fastbloom.dir/MurmurHash3.cpp.o -MF CMakeFiles/fastbloom.dir/MurmurHash3.cpp.o.d -o CMakeFiles/fastbloom.dir/MurmurHash3.cpp.o -c /Users/yh_huang/ProjectData/fast-disk-bloom/src/MurmurHash3.cpp
 
 src/CMakeFiles/fastbloom.dir/MurmurHash3.cpp.i: cmake_force
@@ -128,7 +114,6 @@ src/CMakeFiles/fastbloom.dir/MurmurHash3.cpp.s: cmake_force
 # Object files for target fastbloom
 fastbloom_OBJECTS = \
 "CMakeFiles/fastbloom.dir/bloom.cpp.o" \
-"CMakeFiles/fastbloom.dir/buffer_pool.cpp.o" \
 "CMakeFiles/fastbloom.dir/file_manager.cpp.o" \
 "CMakeFiles/fastbloom.dir/MurmurHash3.cpp.o"
 
@@ -136,12 +121,11 @@ fastbloom_OBJECTS = \
 fastbloom_EXTERNAL_OBJECTS =
 
 src/libfastbloom.a: src/CMakeFiles/fastbloom.dir/bloom.cpp.o
-src/libfastbloom.a: src/CMakeFiles/fastbloom.dir/buffer_pool.cpp.o
 src/libfastbloom.a: src/CMakeFiles/fastbloom.dir/file_manager.cpp.o
 src/libfastbloom.a: src/CMakeFiles/fastbloom.dir/MurmurHash3.cpp.o
 src/libfastbloom.a: src/CMakeFiles/fastbloom.dir/build.make
 src/libfastbloom.a: src/CMakeFiles/fastbloom.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libfastbloom.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libfastbloom.a"
 	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build/src && $(CMAKE_COMMAND) -P CMakeFiles/fastbloom.dir/cmake_clean_target.cmake
 	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fastbloom.dir/link.txt --verbose=$(VERBOSE)
 

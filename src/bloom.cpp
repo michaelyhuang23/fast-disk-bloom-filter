@@ -47,7 +47,6 @@ Bloom::Bloom(std::string _filename, std::string _meta_filename, uint64_t _size, 
 {
     size = num_blocks * block_size * BYTE_SIZE;
     file = new FileManager(_filename, size, block_size);
-    buffer_pool = BufferPool(file, _memory_limit, _block_size);
     num_hashes = (int64_t) (0.7 * size / expected_num_elements);
     hash_seeds = std::vector<uint32_t>(num_hashes+1);
     for(size_t i=0;i<num_hashes+1;i++){
@@ -64,11 +63,9 @@ Bloom::Bloom(std::string _filename, std::string _meta_filename) :
 {
     read_metafile();
     file = new FileManager(_filename, size, block_size);
-    buffer_pool = BufferPool(file, memory_limit, block_size);
 }
 
 Bloom::~Bloom(){
-    buffer_pool.flush_all();
     delete file;
 }
 
@@ -85,7 +82,7 @@ void Bloom::add(std::string s){
         hashes[i] = hash(s, i+1) % (block_size * BYTE_SIZE);
     }
     uint64_t block_id = hash(s, 0) % num_blocks;
-    buffer_pool.add(block_id, hashes);
+    file->write_block(block_id * block_size, hashes);
 }
 
 bool Bloom::contains(std::string s){
@@ -97,20 +94,7 @@ bool Bloom::contains(std::string s){
     //std::cout << "block_id: " << block_id << std::endl;
     //print_vector(hashes);
     //std::cout << "----" << std::endl;
-
-    std::vector<bool> results(num_hashes);
-    if(buffer_pool.query(block_id, hashes, results)){
-        std::vector<uint32_t> r_hashes;
-        for(size_t i=0;i<num_hashes;i++){
-            if(!results[i]){
-                r_hashes.push_back(hashes[i]);
-            }
-        }
-        print_vector(r_hashes);
-        return file->read_block(block_id * block_size, r_hashes);
-    }else{
-        return file->read_block(block_id * block_size, hashes);
-    } 
+    return file->read_block(block_id * block_size, hashes);
 }
 
 uint64_t Bloom::getSize(){

@@ -40,12 +40,13 @@ FileManager::~FileManager(){
     fclose(file);
 }
 
-void FileManager::write_block(uint64_t byte_offset, std::unordered_set<uint32_t>& hashes){
-    std::cout<< "Writing block at " << byte_offset << std::endl;
-    print_set(hashes);
+void FileManager::write_block(uint64_t byte_offset, std::vector<uint32_t>& hashes){
+    //std::cout<< "Writing block at " << byte_offset << std::endl;
+    //print_set(hashes);
     fseek(file, byte_offset, SEEK_SET);
     unsigned char c_byte[block_size];
     fread(c_byte, 1, block_size, file);
+    sort(hashes.begin(), hashes.end());  // sequential writing is faster supposedly
     for(uint32_t bit_index : hashes){
         c_byte[bit_index / BYTE_SIZE] |= (1 << (bit_index % BYTE_SIZE)); 
     }
@@ -57,6 +58,7 @@ bool FileManager::read_block(uint64_t byte_offset, std::vector<uint32_t>& hashes
     fseek(file, byte_offset, SEEK_SET);
     unsigned char c_byte[block_size];
     fread(c_byte, 1, block_size, file);
+    sort(hashes.begin(), hashes.end());  // sequential reading is faster supposedly
     for(uint32_t bit_index : hashes){
         if(!(c_byte[bit_index / BYTE_SIZE] & (1 << (bit_index % BYTE_SIZE)))){
             return false;
