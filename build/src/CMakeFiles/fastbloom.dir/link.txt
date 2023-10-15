@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libfastbloom.a CMakeFiles/fastbloom.dir/bloom.cpp.o CMakeFiles/fastbloom.dir/buffer_pool.cpp.o CMakeFiles/fastbloom.dir/file_manager.cpp.o CMakeFiles/fastbloom.dir/MurmurHash3.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libfastbloom.a
