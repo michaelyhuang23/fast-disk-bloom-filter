@@ -155,6 +155,19 @@ benchmark_bloom/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/benchmark_bloom.dir/build.make test/CMakeFiles/benchmark_bloom.dir/build
 .PHONY : benchmark_bloom/fast
 
+#=============================================================================
+# Target rules for targets named accuracy_bloom
+
+# Build rule for target.
+accuracy_bloom: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 accuracy_bloom
+.PHONY : accuracy_bloom
+
+# fast build rule for target.
+accuracy_bloom/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/accuracy_bloom.dir/build.make test/CMakeFiles/accuracy_bloom.dir/build
+.PHONY : accuracy_bloom/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -163,6 +176,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... accuracy_bloom"
 	@echo "... benchmark_bloom"
 	@echo "... fastbloom"
 	@echo "... test_bloom"

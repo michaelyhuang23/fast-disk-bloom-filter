@@ -98,6 +98,7 @@ src/clean: src/CMakeFiles/fastbloom.dir/clean
 # Recursive "all" directory target.
 test/all: test/CMakeFiles/test_bloom.dir/all
 test/all: test/CMakeFiles/benchmark_bloom.dir/all
+test/all: test/CMakeFiles/accuracy_bloom.dir/all
 .PHONY : test/all
 
 # Recursive "preinstall" directory target.
@@ -107,6 +108,7 @@ test/preinstall:
 # Recursive "clean" directory target.
 test/clean: test/CMakeFiles/test_bloom.dir/clean
 test/clean: test/CMakeFiles/benchmark_bloom.dir/clean
+test/clean: test/CMakeFiles/accuracy_bloom.dir/clean
 .PHONY : test/clean
 
 #=============================================================================
@@ -116,7 +118,7 @@ test/clean: test/CMakeFiles/benchmark_bloom.dir/clean
 src/CMakeFiles/fastbloom.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/fastbloom.dir/build.make src/CMakeFiles/fastbloom.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/fastbloom.dir/build.make src/CMakeFiles/fastbloom.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=3,4,5,6 "Built target fastbloom"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=5,6,7,8 "Built target fastbloom"
 .PHONY : src/CMakeFiles/fastbloom.dir/all
 
 # Build rule for subdir invocation for target.
@@ -142,7 +144,7 @@ src/CMakeFiles/fastbloom.dir/clean:
 test/CMakeFiles/test_bloom.dir/all: src/CMakeFiles/fastbloom.dir/all
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_bloom.dir/build.make test/CMakeFiles/test_bloom.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_bloom.dir/build.make test/CMakeFiles/test_bloom.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=7,8 "Built target test_bloom"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=9,10 "Built target test_bloom"
 .PHONY : test/CMakeFiles/test_bloom.dir/all
 
 # Build rule for subdir invocation for target.
@@ -168,7 +170,7 @@ test/CMakeFiles/test_bloom.dir/clean:
 test/CMakeFiles/benchmark_bloom.dir/all: src/CMakeFiles/fastbloom.dir/all
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/benchmark_bloom.dir/build.make test/CMakeFiles/benchmark_bloom.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/benchmark_bloom.dir/build.make test/CMakeFiles/benchmark_bloom.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=1,2 "Built target benchmark_bloom"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=3,4 "Built target benchmark_bloom"
 .PHONY : test/CMakeFiles/benchmark_bloom.dir/all
 
 # Build rule for subdir invocation for target.
@@ -186,6 +188,32 @@ benchmark_bloom: test/CMakeFiles/benchmark_bloom.dir/rule
 test/CMakeFiles/benchmark_bloom.dir/clean:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/benchmark_bloom.dir/build.make test/CMakeFiles/benchmark_bloom.dir/clean
 .PHONY : test/CMakeFiles/benchmark_bloom.dir/clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/accuracy_bloom.dir
+
+# All Build rule for target.
+test/CMakeFiles/accuracy_bloom.dir/all: src/CMakeFiles/fastbloom.dir/all
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/accuracy_bloom.dir/build.make test/CMakeFiles/accuracy_bloom.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/accuracy_bloom.dir/build.make test/CMakeFiles/accuracy_bloom.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles --progress-num=1,2 "Built target accuracy_bloom"
+.PHONY : test/CMakeFiles/accuracy_bloom.dir/all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/accuracy_bloom.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/accuracy_bloom.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yh_huang/ProjectData/fast-disk-bloom/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/accuracy_bloom.dir/rule
+
+# Convenience name for target.
+accuracy_bloom: test/CMakeFiles/accuracy_bloom.dir/rule
+.PHONY : accuracy_bloom
+
+# clean rule for target.
+test/CMakeFiles/accuracy_bloom.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/accuracy_bloom.dir/build.make test/CMakeFiles/accuracy_bloom.dir/clean
+.PHONY : test/CMakeFiles/accuracy_bloom.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
