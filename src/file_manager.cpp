@@ -71,6 +71,39 @@ bool FileManager::read_block(uint64_t byte_offset, std::vector<uint32_t>& hashes
     return true;
 }
 
+void FileManager::batch_read_block(std::vector<uint64_t>& byte_offsets, std::vector<std::vector<uint32_t>>& hashes, std::vector<bool>& results){
+    unsigned char* mmap_file = (unsigned char*)mmap(NULL, size / BYTE_SIZE, PROT_READ, MAP_SHARED, fileno(file), 0);
+
+    for(size_t i=0;i<byte_offsets.size();i++){
+//    parlay::parallel_for(0, byte_offsets.size(), [&](size_t i){
+        unsigned char* c_byte = mmap_file + byte_offsets[i];
+        sort(hashes[i].begin(), hashes[i].end());  // sequential reading is faster supposedly
+        results[i] = true;
+        for(uint32_t bit_index : hashes[i]){
+            if(!(c_byte[bit_index / BYTE_SIZE] & (1 << (bit_index % BYTE_SIZE)))){
+                results[i] = false;
+                break;
+            }
+        }
+    }//);
+    munmap(mmap_file, size / BYTE_SIZE);
+}
+
+//void FileManager::batch_read_block(std::vector<uint64_t>& byte_offsets, std::vector<std::vector<uint32_t>>& hashes, std::vector<bool>& results){
+//    for(size_t i=0;i<byte_offsets.size();i++){
+//        fseek(file, byte_offsets[i], SEEK_SET);
+//        unsigned char c_byte[block_size];
+//        fread(c_byte, 1, block_size, file);
+//        results[i] = true;
+//        parlay::parallel_for(0, hashes[i].size(), [&](size_t j){
+//            uint32_t bit_index = hashes[i][j];
+//            if(!(c_byte[bit_index / BYTE_SIZE] & (1 << (bit_index % BYTE_SIZE)))){
+//                results[i] = false;
+//            }
+//        });
+//    }
+//}
+
 //void FileManager::write_block(int byte_offset, std::unordered_set<int>& hashes){
 //    fseek(file, byte_offset, SEEK_SET);
 //    int p_byte_index = 0;

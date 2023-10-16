@@ -130,6 +130,20 @@ fastbloom/fast:
 	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/fastbloom.dir/build.make src/CMakeFiles/fastbloom.dir/build
 .PHONY : fastbloom/fast
 
+# Convenience name for target.
+src/CMakeFiles/diskbloom.dir/rule:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/diskbloom.dir/rule
+.PHONY : src/CMakeFiles/diskbloom.dir/rule
+
+# Convenience name for target.
+diskbloom: src/CMakeFiles/diskbloom.dir/rule
+.PHONY : diskbloom
+
+# fast build rule for target.
+diskbloom/fast:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/diskbloom.dir/build.make src/CMakeFiles/diskbloom.dir/build
+.PHONY : diskbloom/fast
+
 MurmurHash3.o: MurmurHash3.cpp.o
 .PHONY : MurmurHash3.o
 
@@ -153,6 +167,30 @@ MurmurHash3.s: MurmurHash3.cpp.s
 MurmurHash3.cpp.s:
 	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/fastbloom.dir/build.make src/CMakeFiles/fastbloom.dir/MurmurHash3.cpp.s
 .PHONY : MurmurHash3.cpp.s
+
+binding.o: binding.cpp.o
+.PHONY : binding.o
+
+# target to build an object file
+binding.cpp.o:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/diskbloom.dir/build.make src/CMakeFiles/diskbloom.dir/binding.cpp.o
+.PHONY : binding.cpp.o
+
+binding.i: binding.cpp.i
+.PHONY : binding.i
+
+# target to preprocess a source file
+binding.cpp.i:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/diskbloom.dir/build.make src/CMakeFiles/diskbloom.dir/binding.cpp.i
+.PHONY : binding.cpp.i
+
+binding.s: binding.cpp.s
+.PHONY : binding.s
+
+# target to generate assembly for a file
+binding.cpp.s:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/diskbloom.dir/build.make src/CMakeFiles/diskbloom.dir/binding.cpp.s
+.PHONY : binding.cpp.s
 
 bloom.o: bloom.cpp.o
 .PHONY : bloom.o
@@ -210,10 +248,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... diskbloom"
 	@echo "... fastbloom"
 	@echo "... MurmurHash3.o"
 	@echo "... MurmurHash3.i"
 	@echo "... MurmurHash3.s"
+	@echo "... binding.o"
+	@echo "... binding.i"
+	@echo "... binding.s"
 	@echo "... bloom.o"
 	@echo "... bloom.i"
 	@echo "... bloom.s"

@@ -18,10 +18,20 @@ message(STATUS "CMAKE_INSTALL_PREFIX:           ${CMAKE_INSTALL_PREFIX}" )
 
 # -------------------------------------------------
 # Add sub directories
+set(PYBIND11_FINDPYTHON ON)
+
+include(FetchContent)
+FetchContent_Declare(
+    pybind11
+    GIT_REPOSITORY https://github.com/pybind/pybind11.git
+)
+FetchContent_MakeAvailable(pybind11)
+
 
 include_directories(include)
 add_subdirectory(src)
 add_subdirectory(test)
+
 
 # -------------------------------------------------
 

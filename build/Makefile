@@ -130,6 +130,19 @@ fastbloom/fast:
 .PHONY : fastbloom/fast
 
 #=============================================================================
+# Target rules for targets named diskbloom
+
+# Build rule for target.
+diskbloom: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 diskbloom
+.PHONY : diskbloom
+
+# fast build rule for target.
+diskbloom/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/diskbloom.dir/build.make src/CMakeFiles/diskbloom.dir/build
+.PHONY : diskbloom/fast
+
+#=============================================================================
 # Target rules for targets named test_bloom
 
 # Build rule for target.
@@ -178,6 +191,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... accuracy_bloom"
 	@echo "... benchmark_bloom"
+	@echo "... diskbloom"
 	@echo "... fastbloom"
 	@echo "... test_bloom"
 .PHONY : help

@@ -1,5 +1,7 @@
 #include "bloom.h"
 
+
+
 void print_vector(std::vector<uint32_t>& v){
     for(uint32_t i=0;i<v.size();i++){
         std::cout << v[i] << " ";
@@ -37,7 +39,27 @@ void Bloom::read_metafile(){
     meta_file.close();
 }
 
-Bloom::Bloom(std::string _filename, std::string _meta_filename, uint64_t _size, uint64_t _expected_num_elements, uint32_t _block_size, int64_t _memory_limit) : 
+Bloom::Bloom(std::string _filename, std::string _meta_filename, uint64_t _expected_num_elements, double _error_order, uint32_t _block_size, int64_t _memory_limit)
+    : expected_num_elements(_expected_num_elements), 
+    filename(_filename), 
+    meta_filename(_meta_filename),
+    block_size(_block_size),
+    memory_limit(_memory_limit)
+{
+    uint64_t _size = (uint64_t)(- _error_order * _expected_num_elements * 5);
+    num_blocks = _size / (block_size * BYTE_SIZE) + 1;
+    size = num_blocks * block_size * BYTE_SIZE;
+    file = new FileManager(_filename, size, block_size);
+    num_hashes = (int64_t) (0.7 * size / expected_num_elements);
+    hash_seeds = std::vector<uint32_t>(num_hashes+1);
+    for(size_t i=0;i<num_hashes+1;i++){
+        hash_seeds[i] = rand();
+    }
+
+    write_metafile();
+}
+
+Bloom::Bloom(uint64_t _size, std::string _filename, std::string _meta_filename, uint64_t _expected_num_elements, uint32_t _block_size, int64_t _memory_limit) : 
     expected_num_elements(_expected_num_elements), 
     filename(_filename), 
     meta_filename(_meta_filename),
@@ -100,6 +122,35 @@ bool Bloom::contains(std::string s){
     return file->read_block(block_id * block_size, hashes);
 }
 
+//void Bloom::batchContains(std::vector<std::string>& items, std::vector<bool>& results){
+//    #pragma omp parallel for
+//    for(size_t i = 0; i < items.size(); i++){
+//        uint64_t offset = (hash(items[i], 0) % num_blocks) * block_size;
+//        std::vector<uint32_t> hashes(num_hashes);
+//        for(size_t j = 0; j < num_hashes; j++){
+//            hashes[j] = hash(items[i], j+1) % (block_size * BYTE_SIZE);
+//        }
+//        results[i] = file->read_block(offset, hashes);
+//    }
+//}
+
+std::vector<bool> Bloom::batchContains(std::vector<std::string>& items){
+    std::vector<bool> results(items.size());
+    std::vector<uint64_t> offsets(items.size());
+    std::vector<std::vector<uint32_t>> hashes(items.size(), std::vector<uint32_t>(num_hashes));
+
+    parlay::parallel_for(0, items.size(), [&](size_t i){
+        offsets[i] = (hash(items[i], 0) % num_blocks) * block_size;
+        for(size_t j = 0; j < num_hashes; j++){
+            hashes[i][j] = hash(items[i], j+1) % (block_size * BYTE_SIZE);
+        }
+    });
+
+    file->batch_read_block(offsets, hashes, results);
+    return results;
+}
+
 uint64_t Bloom::getSize(){
     return size;
 }
+

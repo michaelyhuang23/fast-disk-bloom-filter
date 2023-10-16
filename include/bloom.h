@@ -6,10 +6,13 @@
 #include<bitset>
 #include<numeric>
 #include<fstream>
+#include "parlay/parallel.h"
+#include "parlay/sequence.h"
 
 #include "buffer_pool.h"
 #include "file_manager.h"
 #include "MurmurHash3.h"
+
 
 #define BYTE_SIZE 8
 // over flow might occur if the number of elements is too large
@@ -17,11 +20,13 @@
 class Bloom{
     public: 
         ~Bloom();
-        Bloom(std::string _filename, std::string _meta_filename, uint64_t _size, uint64_t _expected_num_elements, uint32_t _block_size = 4096, int64_t _memory_limit = 2*1e9);
+        Bloom(std::string _filename, std::string _meta_filename, uint64_t _expected_num_elements, double _error_order, uint32_t _block_size = 4096, int64_t _memory_limit = 2*1e9);
+        Bloom(uint64_t _size, std::string _filename, std::string _meta_filename, uint64_t _expected_num_elements, uint32_t _block_size = 4096, int64_t _memory_limit = 2*1e9);
         Bloom(std::string _filename, std::string _meta_filename);
         void flush();
         void add(std::string s);
         bool contains(std::string s);
+        std::vector<bool> batchContains(std::vector<std::string>& s);
         uint32_t hash(std::string s, uint64_t i);
         uint64_t getSize();
     private:
@@ -39,3 +44,4 @@ class Bloom{
         void write_metafile();
         void read_metafile();
 };
+

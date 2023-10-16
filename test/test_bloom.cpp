@@ -23,7 +23,7 @@ int main(int argc, char *argv[]){
     Bloom* bloom; 
     if(cmdl["create"]){
         std::cout<< "Creating new bloom filter" << std::endl;
-        bloom = new Bloom(filename, meta_filename, 10000, 1000, 128, 100);
+        bloom = new Bloom(10000LL, filename, meta_filename, 1000LL, 128, 100);
     }else{
         std::cout<< "Loading existing bloom filter" << std::endl;
         bloom = new Bloom(filename, meta_filename);
