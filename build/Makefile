@@ -142,6 +142,19 @@ test_bloom/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_bloom.dir/build.make test/CMakeFiles/test_bloom.dir/build
 .PHONY : test_bloom/fast
 
+#=============================================================================
+# Target rules for targets named benchmark_bloom
+
+# Build rule for target.
+benchmark_bloom: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 benchmark_bloom
+.PHONY : benchmark_bloom
+
+# fast build rule for target.
+benchmark_bloom/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/benchmark_bloom.dir/build.make test/CMakeFiles/benchmark_bloom.dir/build
+.PHONY : benchmark_bloom/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -150,6 +163,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... benchmark_bloom"
 	@echo "... fastbloom"
 	@echo "... test_bloom"
 .PHONY : help

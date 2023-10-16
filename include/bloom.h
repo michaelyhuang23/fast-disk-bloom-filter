@@ -21,6 +21,7 @@ class Bloom{
         Bloom(std::string _filename, std::string _meta_filename);
         void add(std::string s);
         bool contains(std::string s);
+        void flush();
         uint32_t hash(std::string s, uint64_t i);
         uint64_t getSize();
     private:

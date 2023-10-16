@@ -40,6 +40,10 @@ FileManager::~FileManager(){
     fclose(file);
 }
 
+void FileManager::flush(){
+    fflush(file);
+}
+
 void FileManager::write_block(uint64_t byte_offset, std::unordered_set<uint32_t>& hashes){
     //std::cout<< "Writing block at " << byte_offset << std::endl;
     //print_set(hashes);

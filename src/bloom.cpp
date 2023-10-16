@@ -68,8 +68,13 @@ Bloom::Bloom(std::string _filename, std::string _meta_filename) :
 }
 
 Bloom::~Bloom(){
-    buffer_pool.flush_all();
+    flush();
     delete file;
+}
+
+void Bloom::flush(){
+    buffer_pool.flush_all();
+    file->flush();
 }
 
 

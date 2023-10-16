@@ -130,6 +130,44 @@ test_bloom/fast:
 	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_bloom.dir/build.make test/CMakeFiles/test_bloom.dir/build
 .PHONY : test_bloom/fast
 
+# Convenience name for target.
+test/CMakeFiles/benchmark_bloom.dir/rule:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/benchmark_bloom.dir/rule
+.PHONY : test/CMakeFiles/benchmark_bloom.dir/rule
+
+# Convenience name for target.
+benchmark_bloom: test/CMakeFiles/benchmark_bloom.dir/rule
+.PHONY : benchmark_bloom
+
+# fast build rule for target.
+benchmark_bloom/fast:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/benchmark_bloom.dir/build.make test/CMakeFiles/benchmark_bloom.dir/build
+.PHONY : benchmark_bloom/fast
+
+benchmark_bloom.o: benchmark_bloom.cpp.o
+.PHONY : benchmark_bloom.o
+
+# target to build an object file
+benchmark_bloom.cpp.o:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/benchmark_bloom.dir/build.make test/CMakeFiles/benchmark_bloom.dir/benchmark_bloom.cpp.o
+.PHONY : benchmark_bloom.cpp.o
+
+benchmark_bloom.i: benchmark_bloom.cpp.i
+.PHONY : benchmark_bloom.i
+
+# target to preprocess a source file
+benchmark_bloom.cpp.i:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/benchmark_bloom.dir/build.make test/CMakeFiles/benchmark_bloom.dir/benchmark_bloom.cpp.i
+.PHONY : benchmark_bloom.cpp.i
+
+benchmark_bloom.s: benchmark_bloom.cpp.s
+.PHONY : benchmark_bloom.s
+
+# target to generate assembly for a file
+benchmark_bloom.cpp.s:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/benchmark_bloom.dir/build.make test/CMakeFiles/benchmark_bloom.dir/benchmark_bloom.cpp.s
+.PHONY : benchmark_bloom.cpp.s
+
 test_bloom.o: test_bloom.cpp.o
 .PHONY : test_bloom.o
 
@@ -162,7 +200,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... benchmark_bloom"
 	@echo "... test_bloom"
+	@echo "... benchmark_bloom.o"
+	@echo "... benchmark_bloom.i"
+	@echo "... benchmark_bloom.s"
 	@echo "... test_bloom.o"
 	@echo "... test_bloom.i"
 	@echo "... test_bloom.s"
