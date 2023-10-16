@@ -4,6 +4,7 @@ project(fastbloom)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 message(STATUS "--------------- General configuration -------------")
 message(STATUS "CMake Generator:                ${CMAKE_GENERATOR}")
