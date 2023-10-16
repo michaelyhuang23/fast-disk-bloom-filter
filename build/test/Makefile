@@ -144,6 +144,44 @@ benchmark_bloom/fast:
 	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/benchmark_bloom.dir/build.make test/CMakeFiles/benchmark_bloom.dir/build
 .PHONY : benchmark_bloom/fast
 
+# Convenience name for target.
+test/CMakeFiles/accuracy_bloom.dir/rule:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/accuracy_bloom.dir/rule
+.PHONY : test/CMakeFiles/accuracy_bloom.dir/rule
+
+# Convenience name for target.
+accuracy_bloom: test/CMakeFiles/accuracy_bloom.dir/rule
+.PHONY : accuracy_bloom
+
+# fast build rule for target.
+accuracy_bloom/fast:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/accuracy_bloom.dir/build.make test/CMakeFiles/accuracy_bloom.dir/build
+.PHONY : accuracy_bloom/fast
+
+accuracy_bloom.o: accuracy_bloom.cpp.o
+.PHONY : accuracy_bloom.o
+
+# target to build an object file
+accuracy_bloom.cpp.o:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/accuracy_bloom.dir/build.make test/CMakeFiles/accuracy_bloom.dir/accuracy_bloom.cpp.o
+.PHONY : accuracy_bloom.cpp.o
+
+accuracy_bloom.i: accuracy_bloom.cpp.i
+.PHONY : accuracy_bloom.i
+
+# target to preprocess a source file
+accuracy_bloom.cpp.i:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/accuracy_bloom.dir/build.make test/CMakeFiles/accuracy_bloom.dir/accuracy_bloom.cpp.i
+.PHONY : accuracy_bloom.cpp.i
+
+accuracy_bloom.s: accuracy_bloom.cpp.s
+.PHONY : accuracy_bloom.s
+
+# target to generate assembly for a file
+accuracy_bloom.cpp.s:
+	cd /Users/yh_huang/ProjectData/fast-disk-bloom/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/accuracy_bloom.dir/build.make test/CMakeFiles/accuracy_bloom.dir/accuracy_bloom.cpp.s
+.PHONY : accuracy_bloom.cpp.s
+
 benchmark_bloom.o: benchmark_bloom.cpp.o
 .PHONY : benchmark_bloom.o
 
@@ -200,8 +238,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... accuracy_bloom"
 	@echo "... benchmark_bloom"
 	@echo "... test_bloom"
+	@echo "... accuracy_bloom.o"
+	@echo "... accuracy_bloom.i"
+	@echo "... accuracy_bloom.s"
 	@echo "... benchmark_bloom.o"
 	@echo "... benchmark_bloom.i"
 	@echo "... benchmark_bloom.s"
