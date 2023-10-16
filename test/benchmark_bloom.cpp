@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
 
 
     auto t1 = std::chrono::high_resolution_clock::now();
-    uint64_t trial = 1000;
+    uint64_t trial = 1000000;
     for (uint64_t i = 0; i < trial; i++){
         bloom->add(to_string(rand() % (trial)));
     }
