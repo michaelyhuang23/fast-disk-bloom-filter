@@ -214,15 +214,6 @@ CMAKE_TAPI:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/tapi
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-fastbloomLib_BINARY_DIR:STATIC=/Users/yh_huang/ProjectData/fast-disk-bloom/build
-
-//Value Computed by CMake
-fastbloomLib_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-fastbloomLib_SOURCE_DIR:STATIC=/Users/yh_huang/ProjectData/fast-disk-bloom
-
-//Value Computed by CMake
 fastbloom_BINARY_DIR:STATIC=/Users/yh_huang/ProjectData/fast-disk-bloom/build
 
 //Value Computed by CMake

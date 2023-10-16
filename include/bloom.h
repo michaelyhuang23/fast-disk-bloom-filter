@@ -19,6 +19,7 @@ class Bloom{
         ~Bloom();
         Bloom(std::string _filename, std::string _meta_filename, uint64_t _size, uint64_t _expected_num_elements, uint32_t _block_size = 4096, int64_t _memory_limit = 2*1e9);
         Bloom(std::string _filename, std::string _meta_filename);
+        void flush();
         void add(std::string s);
         bool contains(std::string s);
         uint32_t hash(std::string s, uint64_t i);

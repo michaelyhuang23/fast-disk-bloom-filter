@@ -6,6 +6,7 @@
 #include<string>
 #include<iostream>
 #include<assert.h>
+#include <sys/mman.h>
 
 #define BYTE_SIZE 8
 
@@ -16,6 +17,7 @@ class FileManager{
         void write_block(uint64_t byte_offset, std::vector<uint32_t>& hashes);
         bool read_block(uint64_t byte_offset, std::vector<uint32_t>& hashes);
         void check_file();
+        void flush();
         ~FileManager();
     private:
         FILE* file;

@@ -69,6 +69,9 @@ Bloom::~Bloom(){
     delete file;
 }
 
+void Bloom::flush(){
+    file->flush();
+}
 
 uint32_t Bloom::hash(std::string s, uint64_t i){
     uint32_t hash;
