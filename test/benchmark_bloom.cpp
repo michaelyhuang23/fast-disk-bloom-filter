@@ -12,22 +12,25 @@ int main(int argc, char *argv[]){
 
     argh::parser cmdl(argv);
     uint64_t n;
+    uint32_t block_size;
     double error_order;
     cmdl("n", 10000) >> n; 
     cmdl("error_order", -2) >> error_order;
+    cmdl("block_size", 4096) >> block_size;
 
     uint64_t m = (uint64_t)(-error_order * n * 5);
 
+
     std::cout<< "total bloom filter size: " << m << std::endl;
-    std::cout<< "block size: " << 4096 << std::endl;
-    std::cout<< "block count: " << m / (4096 * 8) + 1 << std::endl;
+    std::cout<< "block size: " << block_size << std::endl;
+    std::cout<< "block count: " << m / (block_size * 8) + 1 << std::endl;
 
     Bloom* bloom; 
-    bloom = new Bloom("data/benchmark_bloom.bin", "data/benchmark_bloom.meta", m, n, 4096, 1LL<<32LL);
+    bloom = new Bloom("data/benchmark_bloom.bin", "data/benchmark_bloom.meta", m, n, block_size, 1LL<<32LL);
 
     auto t1 = std::chrono::high_resolution_clock::now();
-    uint64_t trial = 1;
-    for (uint64_t i = 0; i < 0; i++){
+    uint64_t trial = 100000;
+    for (uint64_t i = 0; i < trial; i++){
         bloom->add(to_string(rand() % (trial)));
     }
     bloom->flush();
