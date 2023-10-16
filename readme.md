@@ -1,8 +1,8 @@
-### DiskBloom
+# DiskBloom
 
-#### Fast Disk Based Bloom Filter
+## Fast Disk Based Bloom Filter
 
-##### Research
+### Research
 
 This high performing bloom filter takes inspiration from the research work by [Biplob Debnath et. al.](https://ieeexplore.ieee.org/document/5961740).
 
@@ -14,7 +14,7 @@ Debnath et. al. proposed that we can break a single bloom filter down into many 
 
 It's fairly straightforward to prove that the error rate of a bunch of bloom filters is essentially equivalent to having a single bloom filter. 
 
-##### Implementation
+### Implementation
 
 I found Debnath et. al.'s optimization to be effective. In this repository, I implemented the approach they proposed in their paper (they didn't provide an implementation). And I confirmed that using multiple bloom filters is significantly faster than a single one. 
 
@@ -30,7 +30,7 @@ I attempted to use `mmap` for parallel reading, but I find that it is not very c
 
 Finally, I provided python library bindings through the `diskbloom.cpython-39-x86_64-linux-gnu.so` file. I use pybind11 for generating the binding. Note that M1 and M2 Mac may not be compatible with pybind11 (at least mine wasn't, I had to hop onto a linux server to generate functionable bindings). 
 
-##### Getting Started (Cpp)
+### Getting Started (Cpp)
 
 All user functions are in `bloom.h` file. Refer to `test_bloom.cpp`, `accuracy_bloom.cpp` (benchmark accuracy), and `benchmark_bloom.cpp` (benchmark performance) for examples about how to use DiskBloom.
 
@@ -68,13 +68,13 @@ bloom_filter->batchContains({"https://www.daylightreveries.org", "https://www.fa
 
 Make sure to call `delete bloom_filter` before you finish, or else the update will not be all flushed to disk. 
 
-##### Getting Started (Python)
+### Getting Started (Python)
 
 Just put `diskbloom.cpython-39-x86_64-linux-gnu.so` in your project directory. And call `import diskbloom`. All the function calls are the same.
 
 If your architecture is different, you will need to recompile the cmake project and the python `.so` file will be generated. 
 
-##### Performance
+### Performance
 
 When the bloom filter permits 10 billion urls, and an error rate of $10^{-10}$, to add 10000 urls takes 189ms. To check 10000 urls take 53ms. And to batch check them take 25ms. 
 
