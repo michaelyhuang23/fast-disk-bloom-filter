@@ -41,8 +41,8 @@ FileManager::~FileManager(){
 }
 
 void FileManager::write_block(uint64_t byte_offset, std::unordered_set<uint32_t>& hashes){
-    std::cout<< "Writing block at " << byte_offset << std::endl;
-    print_set(hashes);
+    //std::cout<< "Writing block at " << byte_offset << std::endl;
+    //print_set(hashes);
     fseek(file, byte_offset, SEEK_SET);
     unsigned char c_byte[block_size];
     fread(c_byte, 1, block_size, file);
